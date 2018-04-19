@@ -10,6 +10,11 @@ router.get('/', function (req, res) {
   res.render( 'index', { tweets: tweets } );
 });
 
+router.get('/users/:name', function(req,res) {
+  var name = req.params.name;
+  var list = tweetBank.find( {name:name} );
+  res.render( 'index', { list: list } );
+});
 
 
 
